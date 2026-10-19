@@ -1,0 +1,42 @@
+{
+  "name": "@ssgk4422/vision-craft",
+  "version": "1.0.0",
+  "description": "⚡ Screenshot-to-Fullstack Live Sandbox: Convert any screenshot, mockup, or UI clip into production Tailwind + HTML/React code with a real-time side-by-side ghost diff sandbox",
+  "main": "dist/src/index.js",
+  "type": "module",
+  "bin": {
+    "vision-craft": "bin/vision-craft.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc",
+    "start": "node bin/vision-craft.js",
+    "dev": "tsc -w",
+    "test": "node --test dist/tests/analyzer.test.js dist/tests/synthesizer.test.js dist/tests/server.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SECRET4422/vision-craft.git"
+  },
+  "keywords": [
+    "screenshot-to-code",
+    "ai-ui",
+    "tailwind",
+    "react",
+    "vibe-coding",
+    "sandbox",
+    "visual-diff",
+    "developer-tools",
+    "design-to-code",
+    "frontend"
+  ],
+  "author": "Prabhakar Pal <vikashpal7888@gmail.com> (https://alphatech.studio)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}

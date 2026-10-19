@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionCraft ⚡ Screenshot-to-Fullstack Live Sandbox</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="studio-body">
+
+  <!-- Top Navigation Header -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <div class="brand-badge">
+        <span class="brand-bolt">⚡</span>
+        <div class="brand-title">
+          <span class="brand-name">VisionCraft</span>
+          <span class="brand-tag">v1.0 LIVE</span>
+        </div>
+      </div>
+
+      <!-- Presets Picker -->
+      <div class="preset-selector-group">
+        <span class="nav-label">Preset:</span>
+        <select id="presetSelect" class="preset-dropdown">
+          <option value="linear-dashboard">Linear Issue Radar (Dark)</option>
+          <option value="stripe-checkout">Stripe Global Checkout (Fintech)</option>
+          <option value="ai-agent-terminal">Cyberpunk Agent Terminal (AI)</option>
+          <option value="saas-landing">SaaS Launchpad Hero (Marketing)</option>
+          <option value="crypto-portfolio">Apex Crypto Vault (Web3)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Center Viewport Switcher -->
+    <div class="nav-center">
+      <div class="viewport-switcher">
+        <button id="btnDesktop" class="vp-btn active" title="Desktop View (100%)">
+          <i class="fa-solid fa-desktop"></i>
+        </button>
+        <button id="btnTablet" class="vp-btn" title="Tablet View (768px)">
+          <i class="fa-solid fa-tablet-screen-button"></i>
+        </button>
+        <button id="btnMobile" class="vp-btn" title="Mobile View (375px)">
+          <i class="fa-solid fa-mobile-screen"></i>
+        </button>
+      </div>
+
+      <!-- Ghost Diff Controls -->
+      <div class="ghost-diff-group">
+        <label class="ghost-toggle-label">
+          <input type="checkbox" id="ghostToggle">
+          <span class="ghost-slider-track"></span>
+          <span class="ghost-label-text">Ghost Diff</span>
+        </label>
+        <input type="range" id="ghostOpacity" min="0" max="100" value="50" class="ghost-range" title="Ghost Overlay Opacity">
+        <span id="ghostPercent" class="ghost-val">50%</span>
+      </div>
+    </div>
+
+    <!-- Nav Right Controls -->
+    <div class="nav-right">
+      <button id="btnToggleCode" class="action-btn">
+        <i class="fa-solid fa-code"></i>
+        <span>Code Drawer</span>
+      </button>
+
+      <button id="btnCopyCode" class="action-btn btn-primary">
+        <i class="fa-solid fa-copy"></i>
+        <span>Copy Code</span>
+      </button>
+
+      <button id="btnExport" class="action-btn btn-accent">
+        <i class="fa-solid fa-download"></i>
+        <span>Export</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Dual Sandbox Workspace -->
+  <main class="studio-workspace">
+    
+    <!-- Left Panel: Screenshot Reference / Drop Zone -->
+    <section class="sandbox-panel panel-left" id="panelLeft">
+      <div class="panel-header">
+        <div class="panel-title">
+          <i class="fa-solid fa-image"></i>
+          <span>Source Reference Mockup</span>
+        </div>
+        <div class="panel-tools">
+          <label for="imageUploadInput" class="upload-chip-btn">
+            <i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Screenshot
+          </label>
+          <input type="file" id="imageUploadInput" accept="image/*" style="display: none;">
+        </div>
+      </div>
+
+      <div class="source-viewport" id="sourceViewport">
+        <!-- Drop Overlay -->
+        <div class="drop-zone-overlay" id="dropZoneOverlay">
+          <div class="drop-box">
+            <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+            <h3 class="drop-title">Drop Screenshot or Paste (Ctrl+V)</h3>
+            <p class="drop-desc">Supports PNG, JPEG, WebP, SVG mockups</p>
+            <div class="drop-action-pill">Auto-extracts design tokens & synthesizes code</div>
+          </div>
+        </div>
+
+        <!-- Rendered Image View -->
+        <img id="referenceImage" class="reference-img" alt="Reference Mockup Preview">
+      </div>
+    </section>
+
+    <!-- Draggable Splitter -->
+    <div class="studio-splitter" id="studioSplitter">
+      <div class="splitter-handle">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </div>
+    </div>
+
+    <!-- Right Panel: Live Interactive Sandbox -->
+    <section class="sandbox-panel panel-right" id="panelRight">
+      <div class="panel-header">
+        <div class="panel-title">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Live Interactive Sandbox</span>
+          <span class="live-dot-badge">LIVE 60FPS</span>
+        </div>
+        <div class="framework-switch">
+          <button id="btnFrameworkHtml" class="fw-btn active">Tailwind HTML</button>
+          <button id="btnFrameworkReact" class="fw-btn">React JSX</button>
+        </div>
+      </div>
+
+      <div class="sandbox-viewport" id="sandboxViewport">
+        <div class="viewport-frame-wrapper" id="frameWrapper">
+          <iframe id="sandboxIframe" class="sandbox-iframe" sandbox="allow-scripts allow-same-origin"></iframe>
+          <div id="ghostOverlay" class="ghost-overlay-layer"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Code & Token Drawer -->
+  <aside class="code-drawer open" id="codeDrawer">
+    <div class="drawer-header">
+      <div class="token-strip" id="tokenStrip">
+        <!-- Dynamically injected token pills -->
+      </div>
+      <div class="drawer-controls">
+        <button id="drawerCloseBtn" class="drawer-btn" title="Minimize Drawer">
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="drawer-body">
+      <pre class="code-block"><code id="codeViewer" class="code-content"></code></pre>
+    </div>
+  </aside>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast-notification"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
