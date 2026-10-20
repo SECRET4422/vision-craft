@@ -5,6 +5,12 @@
 ### Screenshot-to-Fullstack Live Sandbox & 1:1 Ghost Diff Engine
 **Turn any UI screenshot, Figma clip, or mockup into live, production Tailwind CSS & React code in seconds.**
 
+<br />
+
+<img src="assets/banner.jpg" width="100%" alt="VisionCraft Studio Screenshot to Code Live Sandbox" />
+
+<br />
+
 [![CI](https://github.com/SECRET4422/vision-craft/actions/workflows/ci.yml/badge.svg)](https://github.com/SECRET4422/vision-craft/actions)
 [![npm version](https://img.shields.io/badge/npm-v1.0.0-blue.svg)](https://npmjs.com/package/@ssgk4422/vision-craft)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -43,14 +49,14 @@ When frontend developers or vibe-coders attempt to replicate an interface from a
 │   │  Original Source Mockup   │      │   Live Interactive App    │     │
 │   │  (Drop / Paste Ctrl+V)    │  ◄┼► │   (Tailwind HTML / React) │     │
 │   │                           │      │                           │     │
-│   └─────────────┬─────────────┘      └─────────────▲─────────────┘     │
-│                 │                                  │                   │
-│                 ▼                                  │                   │
-│   ┌───────────────────────────┐                    │                   │
-│   │ Image Token Extraction    ├────────────────────┘                   │
+│   └────────────┬──────────────┘      └───────────▲───────────────┘     │
+│                │                                 │                   │
+│                ▼                                 │                   │
+│   ┌───────────────────────────┐                  │                   │
+│   │ Image Token Extraction    ├──────────────────┘                   │
 │   │ (Palettes, Radii, Layout) │      Ghost Diff Overlay (Difference)   │
-│   └─────────────┬─────────────┘                                        │
-│                 ▼                                                      │
+│   └────────────┬──────────────┘                                        │
+│                ▼                                                       │
 │   ┌────────────────────────────────────────────────────────────────┐   │
 │   │ Code Drawer: Tailwind HTML | React JSX | Export Vite Project   │   │
 │   └────────────────────────────────────────────────────────────────┘   │
@@ -141,7 +147,7 @@ Complements our open-source agent & developer tools suite:
 - [`agent-cockpit`](https://github.com/SECRET4422/agent-cockpit) — Real-time visual telemetry HUD & circuit breaker for AI agents.
 - [`loopbreaker`](https://github.com/SECRET4422/loopbreaker) — Autonomous AI bug-loop interrupter & circuit breaker.
 - [`guardrail-mcp`](https://github.com/SECRET4422/guardrail-mcp) — Multi-language AST security policy gate.
-- [`autosmoke`](https://github.com/SECRET4422/autosmoke) — Zero-code automated localhost invariant guard.
+- [`visual-smoke`](https://github.com/SECRET4422/visual-smoke) — Zero-code automated localhost invariant guard.
 
 ---
 
